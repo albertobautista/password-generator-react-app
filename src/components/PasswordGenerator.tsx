@@ -53,7 +53,7 @@ const PasswordGenerator = () => {
 
   const copyPassword = async () => {
     const copiedText = await navigator.clipboard.readText();
-    if (password.length > 0 && copiedText !== password) {
+    if (password && copiedText !== password) {
       navigator.clipboard.writeText(password);
 
       toast.success("Password copied to clipboard", {
