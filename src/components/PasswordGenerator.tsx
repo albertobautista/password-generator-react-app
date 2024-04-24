@@ -54,6 +54,8 @@ const PasswordGenerator = () => {
   const copyPassword = async () => {
     const copiedText = await navigator.clipboard.readText();
     if (password.length > 0 && copiedText !== password) {
+      navigator.clipboard.writeText(password);
+
       toast.success("Password copied to clipboard", {
         position: "top-center",
         autoClose: 5000,
@@ -64,7 +66,6 @@ const PasswordGenerator = () => {
         progress: undefined,
         theme: "colored",
       });
-      navigator.clipboard.writeText(password);
     }
   };
 
@@ -197,9 +198,7 @@ const PasswordGenerator = () => {
           </div>
         </div>
         <div className="buttons">
-          <button type="button" onClick={copyPassword}>
-            Copy Password
-          </button>
+          <button onClick={copyPassword}>Copy Password</button>
           <button type="button" onClick={generatePassword}>
             Generate Password
           </button>
