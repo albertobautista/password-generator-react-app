@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 
 import "./PasswordGenerator.css";
 
@@ -55,17 +54,7 @@ const PasswordGenerator = () => {
     const copiedText = await navigator.clipboard.readText();
     if (password && copiedText !== password) {
       navigator.clipboard.writeText(password);
-
-      toast.success("Password copied to clipboard", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
+      alert("Password Copied");
     }
   };
 
@@ -204,18 +193,6 @@ const PasswordGenerator = () => {
           </button>
         </div>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </>
   );
 };
